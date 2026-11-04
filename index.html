@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple and responsive JavaScript To-Do List app.">
+  <title>TaskFlow | My To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a href="#" class="brand"><span class="brand-icon">✓</span> TaskFlow</a>
+      <button id="themeBtn" class="theme-btn" type="button"
+        aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <p class="eyebrow">YOUR PERSONAL PRODUCTIVITY SPACE</p>
+        <h1>Make today <span>count.</span></h1>
+        <p class="subtitle">Small steps every day lead to big results.</p>
+        <p id="todayDate" class="date"></p>
+      </section>
+
+      <section class="stats" aria-label="Task statistics">
+        <article class="stat-card">
+          <span class="stat-icon purple">▤</span>
+          <div><p>Total Tasks</p><h2 id="totalCount">0</h2></div>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon orange">◷</span>
+          <div><p>Pending</p><h2 id="pendingCount">0</h2></div>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon green">✓</span>
+          <div><p>Completed</p><h2 id="completedCount">0</h2></div>
+        </article>
+      </section>
+
+      <section class="task-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>My Tasks</h2>
+            <p>Plan your work and get things done.</p>
+          </div>
+          <span id="progressLabel" class="progress-label">0% complete</span>
+        </div>
+
+        <div class="progress-track" role="progressbar"
+          aria-label="Task completion progress"
+          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+          id="progressTrack">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <label class="sr-only" for="taskInput">New task</label>
+          <input id="taskInput" type="text" maxlength="150"
+            placeholder="What do you need to do?" autocomplete="off" required>
+          <button class="add-btn" type="submit">＋ Add Task</button>
+        </form>
+
+        <div class="task-toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button class="filter active" data-filter="all" type="button">All</button>
+            <button class="filter" data-filter="pending" type="button">Pending</button>
+            <button class="filter" data-filter="completed" type="button">Completed</button>
+          </div>
+          <button id="clearCompletedBtn" class="clear-btn" type="button">
+            Clear completed
+          </button>
+        </div>
+
+        <ul id="taskList" class="task-list" aria-label="Your tasks"></ul>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">✦</div>
+          <h3 id="emptyTitle">Nothing on your list yet</h3>
+          <p id="emptyText">Add your first task above to get started.</p>
+        </div>
+
+        <p id="taskMessage" class="message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="quote-card">
+        <div class="quote-mark">“</div>
+        <div>
+          <h3>A little inspiration</h3>
+          <p id="quoteText">The secret of getting ahead is getting started.</p>
+          <p id="quoteAuthor" class="quote-author">— Mark Twain (attributed)</p>
+        </div>
+        <button id="quoteBtn" class="quote-btn" type="button">
+          New quote ↗
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built with ♥ using HTML, CSS & JavaScript</p>
+      <p>TaskFlow · 2026</p>
+    </footer>
+  </div>
+</body>
+</html>
